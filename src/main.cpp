@@ -151,12 +151,13 @@ void loop()
                             break;
                         case HOLD:                    
                             break;
-                            // TODO: something different on hold?
                             holding |= 1 << (matrixCode - 1);
                             // handle hold action
                             Serial.print("Button ");
                             Serial.print(buttonCode, DEC);
                             Serial.println(" held.");
+                            // TODO: something different on hold?
+                            //  instead of normal "release"; (or maybe use a different button code ;))
                             bleGamepad.release(buttonCode);
                             sendReport = true;
                             break;
