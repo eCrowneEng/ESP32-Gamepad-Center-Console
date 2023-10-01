@@ -128,7 +128,9 @@ void loop()
 #endif
             }
         }
-        yield();
+        // just in case there are other tasks waiting, we add an artificial delay, which in the ESP32 works well
+        // https://www.esp32.com/viewtopic.php?p=10261#p10261
+        vTaskDelay(11 / portTICK_PERIOD_MS);
 
         if (keypad.getKeys())
         {
@@ -188,7 +190,9 @@ void loop()
                 }
             }
         }
-        yield();
+        // just in case there are other tasks waiting, we add an artificial delay, which in the ESP32 works well
+        // https://www.esp32.com/viewtopic.php?p=10261#p10261
+        vTaskDelay(11 / portTICK_PERIOD_MS);
 
         if (rotaryEncoder.encoderChanged())
         {
