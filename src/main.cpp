@@ -128,7 +128,7 @@ void loop()
 #endif
             }
         }
-        yield;
+        yield();
 
         if (keypad.getKeys())
         {
@@ -188,7 +188,7 @@ void loop()
                 }
             }
         }
-        yield;
+        yield();
 
         if (rotaryEncoder.encoderChanged())
         {
